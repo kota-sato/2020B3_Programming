@@ -3,7 +3,8 @@ def tf(term, docs):
     for i in range (0, len(docs)):
         for j in range (0, len(term)):
            n = docs[i].count(term[j])
-           print("tf("+ str(term[j])+ ", "+str(docs[i])+ ")="+ str(n/ len(docs[i])))
+           n = n/len(docs[i])
+           print("tf("+ str(term[j])+ ", "+str(docs[i])+ ")="+ str(n))
 
 docs = [["リンゴ", "リンゴ"], ["リンゴ", "レモン"], ["レモン", "ミカン"]]
 terms = ["リンゴ", "レモン", "ミカン"]
