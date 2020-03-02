@@ -8,4 +8,4 @@ x1 = np.array([1, 0, 0, 1])
 x2 = np.array([0, 1, 0, 1])
 
 
-print(cosine_sim(x1,x2))
+#print(cosine_sim(x1,x2))

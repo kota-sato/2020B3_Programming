@@ -1,7 +1,10 @@
 import numpy as np
-x = np.zeros((3,3))
+docs = [["リンゴ", "リンゴ"], ["リンゴ", "レモン"], ["レモン", "ミカン"]]
+terms = ["リンゴ", "レモン", "ミカン"]
+x = np.zeros((len(docs),len(terms)))
 
 def idf(term, docs):
+
     N = len(docs)
     df = 0
     for i in range(0, len(term)):
@@ -14,6 +17,8 @@ def idf(term, docs):
         for k in range(0, len(docs)):
             x[i, k] = idf
 
+
+
 def tf(term, docs):
     n = 0
     for i in range (0, len(docs)):
@@ -22,12 +27,7 @@ def tf(term, docs):
            n = n/len(docs[i])
            x[i, j] *= n
 
-
-
-docs = [["リンゴ", "リンゴ"], ["リンゴ", "レモン"], ["レモン", "ミカン"]]
-terms = ["リンゴ", "レモン", "ミカン"]
-
 idf(terms, docs)
 tf(terms, docs)
 
-print(x)
+#print(x)
