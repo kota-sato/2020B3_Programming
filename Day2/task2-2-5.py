@@ -1,4 +1,14 @@
+
 import numpy as np
+
+
+def softmax(x):
+    exp_sum = 0
+    for (i, num) in enumerate(x):
+        exp_sum += np.exp(num)
+    for (j, num) in enumerate(x):
+        x[j] = np.exp(num) / exp_sum
+    return x
 
 
 class SingleLayer:
@@ -30,7 +40,6 @@ class MLP_3Layer():
     def forward(self):
         # for (x, w1, b1) in zip(self.x, self.W1, self.b1):
         for (i, x) in enumerate(self.x):
-
             ray1 = SingleLayer(x, self.W1, self.b1)
             ray2 = SingleLayer(ray1.forward(), self.W2, self.b2)
             self.b1 = np.array([0.1, 0.2, 0.3])
@@ -38,6 +47,10 @@ class MLP_3Layer():
             self.b2 = np.array([0.1, 0.2])
             self.y[i] = ray3.forward()
             self.b3 = np.array([0.1, 0.2])
+
+#            for y in self.y[i]:
+            self.y[i] = softmax(self.y[i])
+
         print(self.y)
 
 
