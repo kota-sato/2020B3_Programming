@@ -2,14 +2,12 @@ import sys
 import random
 args = sys.argv
 
-
-
-for i in range(1, len(args)):
-    if len(args[i]) <= 3:
-        print(args[i]),
-    else :
-        tmp_sr = (args[i])[1:len(args[i])-1]
+for word in args[1:]:
+    if len(word) <= 3:
+        print(word, end=' ')
+    else:
+        tmp_sr = word[1:len(word)-1]
 
         sr = ''.join(random.sample(tmp_sr, len(tmp_sr)))
-        print(((args[i])[0:1]) + sr + ((args[i])[len(args[i])-1:len(args[i])])),
+        print(word[0] + sr + word[-1], end=' ')
 
