@@ -7,5 +7,6 @@ def relu(x):
 
 x = np.array([-1.0, 0.0, 0.5, 2.0])
 
-print(relu(x))
+if __name__ == "__main__":
+    print(relu(x))
 
