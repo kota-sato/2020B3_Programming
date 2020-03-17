@@ -10,8 +10,8 @@ class Multiply:
         return z
 
     def backprop(self, dz):
-        dx = dz / self.y
-        dy = dz / self.x
+        dx = dz * self.y
+        dy = dz * self.x
         return dx, dy
 
 
@@ -39,8 +39,9 @@ add = Add()
 mul = Multiply()
 
 jun = mul.forward(add.forward(a, b), c)
-gyaku_c, gyaku_ab= mul.backprop(jun)
+gyaku_ab, gyaku_c = mul.backprop(1)
 gyaku_a, gyaku_b = add.backprop(gyaku_ab)
 print("順伝播出力:"+str(mul.forward(add.forward(a, b), c)))
+
 print("逆伝播出力 da:"+str(gyaku_a)+ ", db:"+str(gyaku_b)+ ", dc:"+str(gyaku_c))
 
